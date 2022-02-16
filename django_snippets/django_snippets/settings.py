@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'snippets.apps.SnippetsConfig',
+    'django_bootstrap5', #CSSフレームワーク
+    'pygments_renderer', #pythonコードのハイライト
 ]
 
 MIDDLEWARE = [
@@ -55,8 +57,8 @@ ROOT_URLCONF = 'django_snippets.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [BASE_DIR / 'templates'], #テンプレートが格納されたフォルダを指定
+        'APP_DIRS': True, #True -> 各アプリケーション以下のtemplatesフォルダを探索対象に含める
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -118,7 +120,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'snippets/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

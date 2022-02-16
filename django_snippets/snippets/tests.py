@@ -65,7 +65,7 @@ class CreateSnippetTest(TestCase):
 
     def test_render_creation_form(self):
         res = self.client.get('/snippets/new/')
-        self.assertContains(res, 'スニペットの登録', status_code=200)
+        self.assertContains(res, 'スニペット登録', status_code=200)
 
     def test_create_snippet(self):
         data = {'title': 'タイトル2', 'code': 'super code', 'desc': 'not desk'}

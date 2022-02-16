@@ -2,11 +2,13 @@ from email.mime import audio
 from django.http import HttpResponse, HttpResponseForbidden
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_safe, require_http_methods
 from snippets.forms import SnippetForm
 
 from snippets.models import Snippet
 from snippets.forms import SnippetForm
 
+@require_safe #GETとHEADメソッドのみ受け付ける
 def top(request):
     snippets = Snippet.objects.all()
     context = {"snippets": snippets}
@@ -18,6 +20,7 @@ def snippets_list(request):
 
 
 @login_required #このデコレータに囲まれたビューへのアクセスにはログインが必要
+@require_http_methods(['GET', 'POST', 'HEAD'])
 def snippet_new(request):
     if request.method == 'POST':
         # POSTメソッドだっった場合、入力データを取り出し、新規スニペットを作成

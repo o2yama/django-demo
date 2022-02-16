@@ -1,7 +1,9 @@
 {
     "editor.defaultFormatter": "vscode.html-language-features",
     "editor.formatOnSave": true,
-    "[django-html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    "beautify.language": {
+        "html": [
+            "htm", "html", "django-html"
+        ]
+    },
 }
