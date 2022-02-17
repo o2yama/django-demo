@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.top, name='top'),
     path('snippets/', include('snippets.urls')), # snippets/urls.py の読み込み
     path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')) # accounts/urls.pyの読み込み
 ]
 
 # path

@@ -23,7 +23,7 @@
 
   <div class="source-code">{{ snippet.code|pygmentize:"python3" }}</div>
 
-  <p>{{ snippet.desc }}</p>
+  <p>{{ snippet.desc | urlize }}</p>
 </div>
 
 {% endblock %}
